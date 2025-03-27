@@ -1,0 +1,21 @@
+Ce site est un générateur de films basé sur l'utilisation de filtres, mais aussi une bibliothèque de films visionnés avec un système de notation.
+
+J'utilise une API d'une base de données de films (TheMovieDB), qui permet le filtrage par genre et par date. Il est également possible de rechercher des films par titre. L'API génère l'affiche, le titre, le synopsis, etc.
+
+Le site se découpe en 3 pages principales :
+
+---> Page de recherche et de filtre :
+Elle permet de filtrer les films par 19 genres. Il est possible de sélectionner plusieurs genres en maintenant "Ctrl" enfoncé tout en sélectionnant les genres souhaités.
+Le filtrage par année est possible de 1980 à 2025, avec la possibilité de sélectionner plusieurs années.
+Il est également possible de chercher un film par titre ou titre approximatif.
+
+---> Page des résultats :
+Sur cette page, on retrouve les films proposés sous forme de 3 cartes disposées horizontalement, avec l'affiche, le titre, le synopsis, ainsi que le système de notation sur 5 étoiles.
+
+---> Page de la bibliothèque :
+Cette page affiche tous les films que l'utilisateur a notés, toujours sous forme de cartes avec la note attribuée par l'utilisateur. Il est également possible de supprimer un film si souhaité.
+Cela est géré par des requêtes SQL, qui enregistrent le nom de l'utilisateur ayant noté, l'ID du film donné par l'API, ainsi que la note attribuée.
+
+---> Page de connexion et d'enregistrement :
+Cette page est reliée à la table users de la base de données user_preferences. Elle permet à l'utilisateur de s'enregistrer avec un nom d'utilisateur et un mot de passe.
+Le nom d'utilisateur est enregistré et le mot de passe est transformé en hash à l'aide de la fonction password_hash de PHP. La fonction password_verify permet ensuite de vérifier que le mot de passe fourni correspond bien à celui de l'utilisateur.
